@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>exercicio 7</title>
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f2ebeb;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #d1c4c4; 
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .nav-tabs .nav-link {
+            background-color: #af837d;
+            color: #fff;
+            border: 1px solid #ca9c9c;
+            border-radius: 0;
+            margin-bottom: 10px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #b34800;
+        }
+
+        .nav-tabs .nav-link:hover {
+            background-color: #b33300;
+        }
+
+        h2 {
+            color: #b34800;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #b34800;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b33300;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        .exercise-menu {
+            text-align: center;
+        }
+
+        .exercise-menu a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #b34800;
+            text-decoration: none;
+        }
+
+        .exercise-menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs" id="exercisesTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link"  href="#exercicio1">Exercício 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio2">Exercício 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio3">Exercício 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio4">Exercício 4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio5">Exercício 5</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#exercicio6">Exercício 6</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio7.html">Exercício 7</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="exercicio8.html">Exercício 8</a>
+            </li>
+        </ul>
+        <center>
+            <br>
+    <h2> Entre valores e vetores</h2>
+    <br>
+    <h4>Digite um número e clique em "Adicionar": </h4>
+<br>
+    <input type="number" id="valork">
+    <button onclick="adicionar()">Adicionar</button>
+    <br><br>
+
+    <button onclick="TodosValores()">Mostrar Valores</button>
+    <button onclick="MaiorValor()">Maior Valor</button>
+    <button onclick="MenorValor()">Menor Valor</button>
+
+    <script>
+        const vetor = [];
+
+        function adicionar() {
+            const valorInput = document.getElementById("valork").value;
+            if (valorInput !== "") {
+                vetor.push(parseFloat(valorInput));
+                document.getElementById("valork").value = "";
+            }
+        }
+
+        function TodosValores() {
+            alert("Valores inseridos: " + vetor.join(", "));
+        }
+
+        function MaiorValor() {
+            if (vetor.length === 0) {
+                alert("O vetor está vazio.");
+            } else {
+                var maiorValor = vetor[0];
+                for (i = 1; i < vetor.length; i++) {
+                    if (vetor[i] > maiorValor) {
+                        maiorValor = vetor[i];
+                    }
+                }
+                alert("Maior Valor: " + maiorValor);
+            }
+        }
+
+        function MenorValor() {
+            if (vetor.length === 0) {
+                alert("O vetor está vazio.");
+            } else {
+                var menorValor = vetor[0];
+                for (i = 1; i < vetor.length; i++) {
+                    if (vetor[i] < menorValor) {
+                        menorValor = vetor[i];
+                    }
+                }
+                alert("Menor Valor: " + menorValor);
+            }
+        }
+    </script>
+    </center>
+</body>
+</html>

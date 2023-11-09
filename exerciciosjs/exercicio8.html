@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jogin extra simples</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f2ebeb;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #d1c4c4; 
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .nav-tabs .nav-link {
+            background-color: #af837d;
+            color: #fff;
+            border: 1px solid #ca9c9c;
+            border-radius: 0;
+            margin-bottom: 10px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #b34800;
+        }
+
+        .nav-tabs .nav-link:hover {
+            background-color: #b33300;
+        }
+
+        h2 {
+            color: #b34800;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #b34800;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b33300;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        .exercise-menu {
+            text-align: center;
+        }
+
+        .exercise-menu a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #b34800;
+            text-decoration: none;
+        }
+
+        .exercise-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .exercise {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #b6a9a9;
+            margin-top: 10px;
+        }
+
+        .active-exercise {
+            display: block;
+        }
+
+        #colorBox {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border: 2px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs" id="exercisesTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link "  href="#exercicio1">Exercício 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio2">Exercício 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio3">Exercício 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio4">Exercício 4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#exercicio5">Exercício 5</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="#exercicio6">Exercício 6</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio7.html">Exercício 7</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="exercicio8.html">Exercício 8</a>
+            </li>
+        </ul>
+        <br>
+        <h2>Adivinhe o Filme</h2>
+        <br>
+        <p id="movieQuote"> ""</p>
+        <div id="colorBox"></div>
+        <input type="text" id="colorGuess">
+        <input type="button" id="submit" value="Verificar">
+        <p id="message"></p>
+    <br>
+        <script>
+            const movies = [
+                { quote: "'Aqui não existe um lugar assim.'", color: "red", answer: "matrix" },
+                { quote: "'A Estrada de Tijolos é o caminho para a realização de seus desejos.'", color: "yellow", answer: "o mágico de oz" },
+                { quote: "'O primeiro mandamento é: não deixarás a tua vida se esvair.'", color: "purple", answer: "clube da luta" }
+            ];
+
+            let currentRound = 0;
+    
+            function startNewRound() {
+                $("#colorGuess").val("");
+                $("#message").text("");
+                $("#movieQuote").text(movies[currentRound].quote);
+                $("#colorBox").css("background-color", movies[currentRound].color);
+                $("#submit").prop("disabled", false);
+            }
+    
+            $(document).ready(function() {
+                startNewRound();
+    
+                $("#submit").click(function() {
+                    const guess = $("#colorGuess").val().toLowerCase();
+    
+                    if (guess === movies[currentRound].answer) {
+                        $("#message").css("color", "green").text("Parabéns! Você acertou o filme.");
+                        $("#submit").prop("disabled", true);
+    
+                        currentRound++;
+                        if (currentRound < movies.length) {
+                            setTimeout(function() {
+                                startNewRound();
+                            }, 2000); 
+                        } else {
+                            $("#movieQuote").text("Fim do jogo! Mais simples que isso só com resposta pronta.");
+                        }
+                    } else {
+                        $("#message").css("color", "red").text("Incompetente, tente novamente!");
+                    }
+                });
+            });
+        </script>
+</body>
+</html>
+

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercicio 3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f2ebeb;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: #d1c4c4; 
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .nav-tabs .nav-link {
+            background-color: #af837d;
+            color: #fff;
+            border: 1px solid #ca9c9c;
+            border-radius: 0;
+            margin-bottom: 10px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #b34800;
+        }
+
+        .nav-tabs .nav-link:hover {
+            background-color: #b33300;
+        }
+
+        h2 {
+            color: #b34800;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #b34800;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #b33300;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        .exercise-menu {
+            text-align: center;
+        }
+
+        .exercise-menu a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #b34800;
+            text-decoration: none;
+        }
+
+        .exercise-menu a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs" id="exercisesTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio1.html">Exercício 1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio2.html">Exercício 2</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio3.html">Exercício 3</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio4.html">Exercício 4</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio5.html">Exercício 5</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio6.html">Exercício 6</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio7.html">Exercício 7</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="exercicio8.html">Exercício 8</a>
+            </li>
+        </ul>
+        <center>
+        <br>
+        <h2>Calcular o valor total de venda</h2>
+<br>
+        <div>
+            <label for="nome1"> Digite o nome do primeiro produto</label>
+            <input type="text" id="nome1">
+            <br>
+            <label for="preço1"> Digite o preço do primeiro produto</label>
+            <input type="text" id="preço1">
+            <br>
+            <label for="quantidade1"> Digite a quantidade vendida do primeiro produto</label>
+            <input type="text" id="quantidade1">
+        </div>
+<br>
+        <div>
+            <label for="nome2"> Digite o nome do segundo produto</label>
+            <input type="text" id="nome2"> <br>
+            <label for="preço2"> Digite o preço do segundo produto</label>
+            <input type="text" id="preço2"> <br>
+            <label for="quantidade2"> Digite a quantidade vendida do segundo produto</label>
+            <input type="text" id="quantidade2"><br>
+        </div>
+<br>
+        <div>
+            <label for="nome3"> Digite o nome do terceiro produto</label>
+            <input type="text" id="nome3"><br>
+            <label for="preço3"> Digite o preço do terceiro produto</label>
+            <input type="text" id="preço3"><br>
+            <label for="quantidade3"> Digite a quantidade vendida do terceiro produto</label>
+            <input type="text" id="quantidade3"><br>
+        </div><br>
+        <button type="button" onclick="calcularTotal()">Calcular total</button>
+        <br>
+        <span id="calcularTotal"></span>
+
+        <script>
+
+            function calcularTotal() {
+                const nome1 = document.getElementById("nome1").value;
+                const preço1 = parseFloat(document.getElementById('preço1').value);
+                const quantidade1 = parseFloat(document.getElementById('quantidade1').value);
+
+                const nome2 = document.getElementById("nome2").value;
+                const preço2 = parseFloat(document.getElementById('preço2').value);
+                const quantidade2 = parseFloat(document.getElementById('quantidade2').value);
+
+                const nome3 = document.getElementById("nome3").value;
+                const preço3 = parseFloat(document.getElementById('preço3').value);
+                const quantidade3 = parseFloat(document.getElementById('quantidade3').value);
+                const span = document.getElementById("calcularTotal");
+
+                //console.log((quantidade1 * preço1) + (quantidade2 * preço2) + (quantidade3 * preço3))
+
+                span.innerHTML = (quantidade1 * preço1) + (quantidade2 * preço2) + (quantidade3 * preço3);
+            } </script>
+</center>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
